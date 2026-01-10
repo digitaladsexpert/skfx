@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
@@ -11,7 +10,6 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background:#f0f4f3;
       color:#0b1220;
-      padding:0px;
       display:flex;
       justify-content:center;
     }
@@ -26,8 +24,6 @@
       padding:20px;
     }
 
-    
-
     .logo{
       width:90px;
       height:90px;
@@ -36,39 +32,15 @@
       margin:0 auto 14px;
       overflow:hidden;
     }
-    .logo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+    .logo img{width:100%;height:100%;object-fit:cover}
 
-    .heading h1{
-      font-size:20px;
-      font-weight:700;
-      line-height:1.3;
-      margin-bottom:6px;
-    }
-    .accent{color:#0aa3ff;}
+    .heading h1{font-size:20px;font-weight:700;margin-bottom:6px}
+    .accent{color:#0aa3ff}
+    .sub-title{color:#0b6b2e;font-weight:700;margin-bottom:6px}
+    .stats{margin-bottom:12px;color:#444;font-weight:600}
 
-    .sub-title{
-      color:#0b6b2e;
-      font-weight:700;
-      margin-bottom:6px;
-    }
-
-    .stats{
-      margin-bottom:12px;
-      color:#444;
-      font-weight:600;
-    }
-
-    .desc{
-      padding:10px;
-      font-size:14px;
-      margin-bottom:16px;
-      color:#333;
-    }
-    .desc small{color:#777;}
+    .desc{padding:10px;font-size:14px;margin-bottom:16px;color:#333}
+    .desc small{color:#777}
 
     .btn-telegram{
       background:linear-gradient(180deg,#0b7b2b,#045d1f);
@@ -79,16 +51,19 @@
       font-size:18px;
       text-decoration:none;
       display:inline-block;
-      animation:pulseBtn 2s infinite ease-in-out;
       box-shadow:0 0 20px rgba(11,123,43,0.4);
       margin-bottom:14px;
+      cursor:pointer;
     }
 
-    @keyframes pulseBtn{
-      0%{transform:scale(1)}
-      50%{transform:scale(1.05)}
-      100%{transform:scale(1)}
+    .btn-no{
+      background:#ddd;
+      color:#333;
+      box-shadow:none;
+      margin-top:8px;
     }
+
+    .hidden{display:none}
 
     .timer-row{
       display:flex;
@@ -103,57 +78,37 @@
       font-weight:700;
     }
 
-    .note{
-      font-size:14px;
-      color:#333;
-      margin-bottom:10px;
-    }
-
-    .footer-links{
-      margin-top:20px;
-      font-size:13px;
-      line-height:1.7;
-    }
-    .footer-links a{
-      color:#0a84ff;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .fb-disclaimer{
-      font-size:12px;
-      color:#777;
-      margin-top:20px;
-      line-height:1.5;
-    }
+    .note{font-size:14px;color:#333;margin-bottom:10px}
+    .footer-links{margin-top:20px;font-size:13px;line-height:1.7}
+    .footer-links a{color:#0a84ff;text-decoration:none;font-weight:600}
+    .fb-disclaimer{font-size:12px;color:#777;margin-top:20px;line-height:1.5}
   </style>
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1200224825619873');
-fbq('track', 'PageView');
+!function(f,b,e,v,n,t,s){
+ if(f.fbq)return;
+ n=f.fbq=function(){n.callMethod?
+ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+ if(!f._fbq)f._fbq=n;
+ n.push=n;n.loaded=!0;n.version='2.0';
+ n.queue=[];
+ t=b.createElement(e);t.async=!0;
+ t.src=v;s=b.getElementsByTagName(e)[0];
+ s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1200224825619873');
+fbq('track','PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1200224825619873&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
+</head>
 
 <body>
 
 <div class="wrap">
 
-  
-
   <div class="logo">
-    <img src="https://ads.shrirammedia.live/wp-content/uploads/2025/12/sk.jpg" alt="Logo">
+    <img src="https://ads.shrirammedia.live/wp-content/uploads/2025/12/sk.jpg">
   </div>
 
   <div class="heading">
@@ -163,23 +118,39 @@ src="https://www.facebook.com/tr?id=1200224825619873&ev=PageView&noscript=1"
   <div class="sub-title">Unlock the Secrets to Crypto & Forex Success</div>
   <div class="stats">18,555 Subscribers</div>
 
-  <div class="desc">
-    The Best Crypto and Forex Signals For Educational Use Only.<br>
-    <small>No financial advice • Market risk involved</small>
+  <!-- QUESTION STEP -->
+  <div id="questionStep">
+
+    <div class="desc">
+      Do you want to receive <b>educational Crypto & Forex analysis</b>
+      on Telegram?
+      <br><small>No financial advice • Market risk involved</small>
+    </div>
+
+    <div class="btn-telegram" id="yesBtn">YES, CONTINUE</div>
+    <div class="btn-telegram btn-no" id="noBtn">NO, EXIT</div>
+
   </div>
 
-  <!-- ✅ BUTTON → redirect.html -->
-  <a class="btn-telegram" href="https://t.me/+xhiREHuyboEzZDY1" target="_blank">
-    View In Telegram
-  </a>
+  <!-- TELEGRAM STEP -->
+  <div id="telegramStep" class="hidden">
 
-  <div class="timer-row">
-    <div class="timer-pill" id="minutes">10 Min</div>
-    <div class="timer-pill" id="seconds">00 Sec</div>
-  </div>
+    <a class="btn-telegram"
+       id="tgBtn"
+       href="https://t.me/+xhiREHuyboEzZDY1"
+       target="_self">
+       View In Telegram
+    </a>
 
-  <div class="note">
-    If you have <b>Telegram</b>, you can join instantly
+    <div class="timer-row">
+      <div class="timer-pill" id="minutes">10 Min</div>
+      <div class="timer-pill" id="seconds">00 Sec</div>
+    </div>
+
+    <div class="note">
+      If you have <b>Telegram</b>, you can join instantly
+    </div>
+
   </div>
 
   <div class="footer-links">
@@ -192,12 +163,29 @@ src="https://www.facebook.com/tr?id=1200224825619873&ev=PageView&noscript=1"
 
   <div class="fb-disclaimer">
     This site is not a part of the Facebook™ website or Facebook Inc.
-    This site is NOT endorsed by Facebook™ in any way.
+    This site is NOT endorsed by Facebook™.
   </div>
 
 </div>
 
 <script>
+// STEP LOGIC
+document.getElementById("yesBtn").onclick = ()=>{
+  document.getElementById("questionStep").classList.add("hidden");
+  document.getElementById("telegramStep").classList.remove("hidden");
+};
+
+document.getElementById("noBtn").onclick = ()=>{
+  alert("This access is only for interested users.");
+  window.location.href="https://google.com";
+};
+
+// OPTIONAL Subscribe event
+document.getElementById("tgBtn").addEventListener("click", ()=>{
+  try{ fbq('track','Subscribe'); }catch(e){}
+});
+
+// TIMER
 let remaining = 10 * 60;
 const m = document.getElementById("minutes");
 const s = document.getElementById("seconds");
